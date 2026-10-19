@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nèi Dìxíng — El Décimo Terreno</title>
+<meta name="description" content="Nèi Dìxíng 内地形 — El terreno que Sun Wu no cartografió. Capítulo exclusivo para lectores de El Dao del Guerrero, de Ricardo Gustavo Cussatti Araujo.">
+<meta name="theme-color" content="#0b0a08">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="Nèi Dìxíng — El terreno que Sun Wu no cartografió">
+<meta property="og:description" content="Sun Wu describió nueve terrenos. Este es el décimo: el que llevas dentro.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://eldaodelguerrero.site/img/web/og.jpg">
+<meta property="og:url" content="https://eldaodelguerrero.site/ensayo.html">
+<link rel="canonical" href="https://eldaodelguerrero.site/ensayo.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;500;700;900&display=swap">
+<style>
+/* Ensayo — una página para leer despacio.
+   Misma tierra que la landing: negro cálido, pergamino, oro y el rojo del sello.
+   Cada terreno cuelga su nombre en hanzi en el margen, como una marca en el mapa. */
+
+:root {
+  --bg: #0b0a08;
+  --bg-elevated: #141210;
+  --fg: #e8e0d0;
+  --fg-body: #d6cdbb;
+  --fg-muted: #a09880;
+  --fg-dim: #706858;
+  --gold: #c9a44c;
+  --red: #8b2020;
+  --line: rgba(201, 164, 76, 0.1);
+  --gold-metal: linear-gradient(176deg, #f6e3a8 0%, #d9b45e 30%, #a9822f 52%, #e7c87a 70%, #8f6a26 100%);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-hanzi: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+  --gutter: 24px;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg-body);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::selection { background: rgba(201, 164, 76, 0.3); color: var(--fg); }
+a { color: var(--gold); text-decoration: none; transition: color .3s; }
+a:hover { color: var(--fg); }
+:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+p { margin: 0 0 1.35rem; }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+em { font-style: italic; }
+
+.measure { max-width: 680px; margin-inline: auto; padding-inline: var(--gutter); }
+
+/* Barra superior mínima: volver a la landing */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px var(--gutter);
+  background: linear-gradient(to bottom, rgba(11,10,8,.94), rgba(11,10,8,.78));
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+}
+.topbar a { color: var(--fg-muted); }
+.topbar a:hover { color: var(--gold); }
+.topbar .pdf { color: var(--gold); }
+
+/* ===== PORTADA DEL ENSAYO ===== */
+.cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 120px 0 110px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.cover-ink {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(760px, 120vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: url('img/web/guerrero.jpg') no-repeat center / contain;
+  opacity: .38;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 40%, transparent 70%);
+          mask-image: radial-gradient(circle at 50% 50%, #000 40%, transparent 70%);
+  z-index: -1;
+  animation: fade 2.2s ease-out both;
+}
+@keyframes fade { from { opacity: 0; } to { opacity: .38; } }
+
+.cover-series {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--fg-muted);
+  margin-bottom: 2rem;
+}
+.cover-han {
+  display: block;
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 11vw, 6.2rem);
+  line-height: 1;
+  letter-spacing: .12em;
+  margin-bottom: 1.6rem;
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.cover h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.3rem, 6.4vw, 4rem);
+  line-height: 1.05;
+  color: var(--fg);
+  text-wrap: balance;
+}
+.cover-sub {
+  margin: 1.4rem auto 0;
+  max-width: 460px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--gold);
+}
+.seal {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--red);
+  border-radius: 2px;
+  color: #a82626;
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 1;
+  transform: rotate(-3deg);
+  user-select: none;
+}
+.cover .seal { margin-top: 2.6rem; }
+.cover-meta {
+  margin-top: 1.6rem;
+  font-size: .9rem;
+  color: var(--fg-muted);
+}
+
+/* ===== CUERPO ===== */
+.essay { padding: 96px 0 40px; }
+
+.essay .lede {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.55rem;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+/* Frases que el texto deja solas en su línea */
+.beat {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.45rem;
+  line-height: 1.45;
+  color: var(--fg);
+  margin: 2.2rem 0;
+}
+
+/* Citas del libro */
+.book-quote {
+  margin: 2.4rem 0;
+  padding: 0 0 0 1.6rem;
+  border-left: 1px solid var(--red);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+/* ===== TERRENOS ===== */
+.terrain { position: relative; margin-top: 5.5rem; }
+.terrain-mark {
+  display: block;
+  font-family: var(--font-hanzi);
+  font-weight: 500;
+  font-size: 2.1rem;
+  line-height: 1;
+  letter-spacing: .08em;
+  color: var(--gold);
+  opacity: .6;
+  margin-bottom: 1.1rem;
+  user-select: none;
+}
+@media (min-width: 1060px) {
+  .terrain-mark {
+    position: absolute;
+    right: calc(100% + 40px);
+    top: .15em;
+    margin: 0;
+    writing-mode: vertical-rl;
+    font-size: 2.3rem;
+  }
+}
+.terrain-num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--fg-muted);
+  margin-bottom: .4rem;
+}
+.terrain h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 4.6vw, 2.5rem);
+  line-height: 1.12;
+  color: var(--gold);
+  text-wrap: balance;
+}
+.terrain h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--red);
+  margin: 1.4rem 0 1.9rem;
+}
+
+/* Las preguntas del mapa */
+.questions {
+  list-style: none;
+  margin: 2.2rem 0 2.4rem;
+  padding: 0;
+  display: grid;
+  gap: 1.1rem;
+}
+.questions li {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: 14px;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--fg);
+}
+.questions .han {
+  font-family: var(--font-hanzi);
+  font-style: normal;
+  font-size: 1.15rem;
+  color: var(--gold);
+  opacity: .7;
+  letter-spacing: .04em;
+}
+
+/* Interludios sin número */
+.interlude { margin-top: 5rem; }
+.interlude h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(1.7rem, 4vw, 2.15rem);
+  color: var(--fg);
+  margin-bottom: 1.6rem;
+}
+
+/* Tres golpes */
+.three {
+  margin: 2.6rem 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4.4vw, 2.2rem);
+  line-height: 1.35;
+  color: var(--gold);
+}
+.three span { display: block; }
+
+/* Cierre del ensayo */
+.finale {
+  margin-top: 6rem;
+  padding-top: 5rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.finale-han {
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: .35;
+  margin-bottom: 2rem;
+}
+.finale p { text-align: left; }
+.finale .last {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 4.6vw, 2.4rem);
+  line-height: 1.3;
+  color: var(--fg);
+  margin: 3rem 0 1.4rem;
+  text-wrap: balance;
+}
+.finale .last-sub {
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--gold);
+  margin-bottom: 3.5rem;
+}
+
+.signature {
+  text-align: center;
+  margin-top: 3.5rem;
+}
+.signature .name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--fg);
+  margin: 1.4rem 0 .2rem;
+}
+.signature .place { font-size: .9rem; color: var(--fg-muted); margin: 0; }
+
+.aside-box {
+  margin: 3.5rem 0 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--gold);
+  text-align: left;
+}
+.aside-box p { margin: 0; }
+.aside-box p + p { margin-top: .55rem; }
+.aside-box .small { font-size: .9rem; color: var(--fg-muted); }
+.aside-box a { font-family: var(--font-display); font-size: 1.18rem; }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 3rem 0 0;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 30px;
+  border: 1px solid rgba(201, 164, 76, .55);
+  border-radius: 2px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: .03em;
+  transition: border-color .35s, box-shadow .35s, background-color .35s, color .35s;
+}
+.btn:hover {
+  color: var(--fg);
+  border-color: var(--gold);
+  background: rgba(201, 164, 76, .06);
+  box-shadow: 0 0 28px rgba(201, 164, 76, .16);
+}
+
+footer.end {
+  padding: 80px var(--gutter) 90px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+footer.end a { color: var(--fg-muted); }
+footer.end a:hover { color: var(--gold); }
+
+@media (max-width: 720px) {
+  :root { --gutter: 18px; }
+  body { font-size: 17px; }
+  .cover { padding: 84px 0 80px; }
+  .essay { padding-top: 72px; }
+  .terrain { margin-top: 4.5rem; }
+  .essay .lede { font-size: 1.35rem; }
+  .questions li { grid-template-columns: 2.6rem 1fr; font-size: 1.18rem; }
+  .actions { flex-direction: column; }
+  .btn { width: 100%; }
+  .aside-box { padding: 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+@media print {
+  body::after, .topbar, .cover-ink, .actions, footer.end { display: none !important; }
+  body { background: #fff; color: #222; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar" aria-label="Navegación del ensayo">
+  <a href="index.html">← El Décimo Terreno</a>
+  <a class="pdf" href="descargas/El-Decimo-Terreno.pdf" download>Descargar PDF</a>
+</nav>
+
+<header class="cover">
+  <div class="cover-ink" aria-hidden="true"></div>
+  <div class="measure">
+    <p class="cover-series">Capítulo exclusivo para lectores de <em>El Dao del Guerrero</em></p>
+    <span class="cover-han" lang="zh" aria-hidden="true">内地形</span>
+    <h1>El Décimo Terreno</h1>
+    <p class="cover-sub">Nèi Dìxíng — El terreno que Sun Wu no cartografió</p>
+    <span class="seal" role="img" aria-label="Sello: Dào">道</span>
+    <p class="cover-meta">Ricardo Gustavo Cussatti Araujo</p>
+  </div>
+</header>
+
+<main class="essay">
+  <article class="measure">
+
+    <p class="lede">Sūn Wǔ le dedicó dos capítulos del <em>Bīngfǎ</em> al terreno.</p>
+
+    <p>En el décimo, <em>Dìxíng</em> (地形), describe seis tipos de terreno exterior: accesible, traicionero, indeciso, estrecho, escarpado y lejano. En el undécimo, <em>Jiǔ Dì</em> (九地), clasifica nueve terrenos según la posición del ejército. Van desde el terreno dispersivo, donde se pelea en la propia tierra y las ganas de huir son mayores, hasta el terreno mortal, donde ya solo queda luchar o morir.</p>
+
+    <p>Son trece capítulos breves. Es el tratado militar más antiguo que conservamos y, probablemente, el más leído.</p>
+
+    <p class="beat">En ninguna de esas páginas aparece el terreno que llevas dentro.</p>
+
+    <p>No creo que sea un olvido. Sun Wu escribía para príncipes que necesitaban ganar guerras, no para generales que tenían que sobrevivir a haberlas ganado. El <em>Bīngfǎ</em> empieza con la planificación y termina con los espías. Es un manual de ida, sin capítulo de vuelta.</p>
+
+    <p class="beat">Pero todo guerrero vuelve.</p>
+
+    <p>Y al volver se encuentra con otro terreno, uno que no figura en ningún mapa porque viaja con él.</p>
+
+    <p>Lin lo llama <em>Nèi Dìxíng</em> (内地形), el terreno interior: el décimo terreno, el que Sun Wu no nombró. Este ensayo intenta recorrerlo con el mapa de los otros nueve en la mano.</p>
+
+    <!-- I -->
+    <section class="terrain" aria-labelledby="t1">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">内散地</span>
+      <span class="terrain-num">I</span>
+      <h2 id="t1">El terreno dispersivo interior</h2>
+
+      <p>Para Sun Wu, el terreno dispersivo es aquel donde el guerrero combate en su propio territorio. Es peligroso porque el hogar queda demasiado cerca. El soldado piensa en su familia, en sus campos, en su cama, y la tentación de desertar crece.</p>
+      <p>Por dentro pasa algo parecido, y cualquiera lo ha vivido.</p>
+      <p>Es esa mañana en la que sabes perfectamente lo que tienes que hacer y no lo haces. Sabes cómo y tienes con qué. Lo que pasa es que estás demasiado cerca de ti mismo, cómodo en la versión de ti que ya conoces, metido en una rutina que no te sirve pero que al menos no duele.</p>
+      <p>El terreno dispersivo interior es la zona de confort, aunque no en el sentido de bienestar. Se parece más a la anestesia.</p>
+      <p>En el Capítulo IX, cuando Meng despierta una mañana sin sentir nada y los demás lo confunden con un hombre en calma, el libro lo resume así:</p>
+      <blockquote class="book-quote">«El guerrero que no siente no ha encontrado la paz. Ha encontrado el hielo.»</blockquote>
+      <p>Cuando el combate es en tu propio territorio emocional, nadie deserta con los pies. Desertas de ti. Es el momento en que decides que así está bien, que no hace falta cambiar, que ese dolor de fondo es lo que cuesta estar vivo.</p>
+      <p>Sun Wu aconsejaba no combatir en terreno dispersivo. Aquí el consejo cambia: hay que combatir, pero antes hay que darse cuenta de que esa comodidad tiene poco de paz. Es parálisis con un nombre amable.</p>
+    </section>
+
+    <!-- II -->
+    <section class="terrain" aria-labelledby="t2">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">内重地</span>
+      <span class="terrain-num">II</span>
+      <h2 id="t2">El terreno grave interior</h2>
+
+      <p>El terreno grave, <em>Zhòng dì</em>, es aquel en el que el ejército ya se ha adentrado mucho en territorio enemigo. Retroceder es difícil y los suministros dependen de lo que se encuentre por el camino. Sun Wu observaba que ahí el ejército se mantiene unido por pura necesidad: nadie deserta porque no hay adónde ir.</p>
+      <p>Por dentro, el terreno grave es el agotamiento que no reconoces como tal.</p>
+      <p>No me refiero al cansancio, que se arregla con una noche de sueño o una semana de vacaciones. Hablo de haberte metido tan a fondo en una responsabilidad (un trabajo, una relación, un compromiso que en su día elegiste) que ya no sabes dónde acaba la obligación y dónde empiezas tú.</p>
+      <p class="beat">Has entrado tanto en territorio ajeno que se te ha olvidado cuál era el tuyo.</p>
+      <p>Pienso en el ejecutivo que lleva quince años levantando algo que ya no le importa y no se atreve a soltar. En la madre que ha sostenido a todos durante tanto tiempo que ya no sabe qué necesita ella. En el profesor que enseña por inercia lo que antes enseñaba por vocación.</p>
+      <p>Lo más traicionero de este terreno es que a quien lo habita suelen admirarlo. Visto desde fuera parece compromiso, incluso madurez. Nadie ve la trinchera.</p>
+      <p>Sun Wu decía que en terreno grave hay que saquear, tomar del entorno lo que haga falta.</p>
+      <p>Aquí el saqueo consiste en recuperar lo que era tuyo. En volver a preguntarte qué necesitas tú, al margen de lo que se espera de ti o de lo que prometiste.</p>
+      <p>Cuesta más de lo que parece. Llevas tanto tiempo sin hacerte esa pregunta que la respuesta ya no sale sola.</p>
+    </section>
+
+    <!-- III -->
+    <section class="terrain" aria-labelledby="t3">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">内围地</span>
+      <span class="terrain-num">III</span>
+      <h2 id="t3">El terreno cercado interior</h2>
+
+      <p>El terreno cercado es el de los pasos estrechos, las entradas angostas y los caminos sinuosos, donde un ejército pequeño puede acabar con uno grande. Sun Wu recomendaba la estratagema, porque ahí la fuerza bruta no sirve.</p>
+      <p>Por dentro, el terreno cercado es esa negociación contigo mismo que nunca ganas.</p>
+      <p>Es la conversación que da vueltas a las tres de la mañana, en la ducha o en el coche:</p>
+      <blockquote class="book-quote">«Debería dejarlo. Pero si lo dejo, ¿qué? No puedo dejarlo. Pero no puedo seguir así. Pero si lo dejo...»</blockquote>
+      <p>Un camino que vuelve una y otra vez sobre sí mismo.</p>
+      <p>Lo que lo convierte en terreno cercado no es que la decisión sea difícil, sino que las dos salidas tienen cara de derrota. Quedarte es rendirte; irte, también. Y mientras decides, el paso se estrecha un poco cada día.</p>
+      <p>En esto Sun Wu acertaba. Este terreno no se resuelve con más voluntad ni con más horas. La estratagema aquí es aceptar que la pregunta está mal planteada, que quedarte o irte no son las únicas opciones y que el paso estrecho es solo la parte del terreno que se ve desde donde estás.</p>
+      <p class="beat">Lin nunca le dice a Meng qué hacer. Le enseña a ver más terreno.</p>
+    </section>
+
+    <!-- IV -->
+    <section class="terrain" aria-labelledby="t4">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">内死地</span>
+      <span class="terrain-num">IV</span>
+      <h2 id="t4">El terreno mortal interior</h2>
+
+      <p>El terreno mortal, <em>Sǐ dì</em>, es el más famoso de los nueve. Sun Wu lo define como aquel en el que «solo sobrevives si luchas sin demora». No hay retirada ni suministros, y la única esperanza está en actuar ya y con todo. Ahí el ejército pelea como un animal acorralado.</p>
+      <p>Por dentro, a esto lo llamamos crisis.</p>
+      <p>Y no hablo de la crisis aparatosa, la que se nota desde fuera. Hablo de la silenciosa: el momento en que algo se rompe dentro de ti sin estruendo, con un clic casi imperceptible, y sabes que lo de antes no va a volver.</p>
+      <p>A veces es una frase que alguien te dice y que esta vez, quién sabe por qué, te atraviesa. O una mañana en la que te miras al espejo y no te reconoces. O el día en que caes en la cuenta de que llevas meses fingiendo que estás bien.</p>
+      <p>Da miedo porque te deja sin opciones. Ya no puedes volver a ser quien eras, esa versión de ti se ha vuelto inhabitable, y la siguiente todavía no existe.</p>
+      <p class="beat">Sun Wu decía: en terreno mortal, lucha.</p>
+      <p>Por dentro, luchar significa más bien dejar de huir, de negociar y de fingir. Mirar lo que hay sin la armadura y sin la historia que te venías contando, y decidir qué haces con eso.</p>
+      <p>Meng llega a su terreno mortal en el Capítulo II, a los pocos días de volver. No en una batalla, sino de madrugada, en el patio vacío, con la espada extendida hacia un enemigo que ya no existe. Baja la hoja y lo que ve en ella es su propia cara.</p>
+      <p class="beat">Casi ninguno de estos terrenos llega con violencia. Llegan con silencio.</p>
+    </section>
+
+    <!-- V -->
+    <section class="terrain" aria-labelledby="t5">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">内空地</span>
+      <span class="terrain-num">V</span>
+      <h2 id="t5">El paraje que falta</h2>
+
+      <p>Sun Wu enumeró nueve terrenos y ahí se detuvo. En el <em>Bīngfǎ</em> no hay un décimo.</p>
+      <p>El décimo es el terreno interior entero, y dentro de él hay un paraje que ningún tratado militar ha cartografiado, porque no tiene equivalente fuera.</p>
+      <p>Es el terreno vacío, <em>Kōng dì</em> (空地).</p>
+      <p class="beat">Lo pisas cuando la batalla ha terminado y no sabes quién eres sin ella.</p>
+      <p>Tampoco es depresión ni apatía, aunque a veces se confunda con ellas. Es la desorientación del guerrero que construyó su identidad alrededor de un conflicto y, al resolverlo, se queda sin mapa. Ha peleado tanto tiempo contra algo que, cuando ese algo desaparece, no sabe qué hacer con las manos.</p>
+      <p>Le pasa al padre que estuvo años luchando por la custodia y, cuando la consigue, descubre que no sabe ser padre sin ser combatiente. A la mujer que dedicó una década a sacar a flote un negocio en crisis y, cuando por fin se estabiliza, siente un vacío que no entiende. Al activista que gana la causa y se queda sin propósito.</p>
+      <p class="beat">Es un terreno de victoria que se vive como una derrota.</p>
+      <p>Y, para mí, es el más importante de todos, porque ahí empieza la reconstrucción. En el libro, Meng llega a él en el Capítulo XVI, con el ginkgo ya desnudo, y descubre que el vacío que dejan las hojas es lo único que le deja ver el cielo.</p>
+    </section>
+
+    <!-- VI -->
+    <section class="terrain" aria-labelledby="t6">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">知己</span>
+      <span class="terrain-num">VI</span>
+      <h2 id="t6">Cartografiar el terreno interior</h2>
+
+      <p>Sun Wu escribió:</p>
+      <blockquote class="book-quote">«Conócete a ti mismo, conoce a tu enemigo, y en cien batallas no estarás en peligro.»</blockquote>
+      <p>Es de las frases más citadas del <em>Bīngfǎ</em>, y casi todos los que la repiten se quedan con la parte del enemigo. Se olvidan de lo de conocerse a sí mismo.</p>
+      <p>Conocerse no es saber qué te gusta o qué se te da bien. Es saber en qué terreno interior estás ahora mismo.</p>
+
+      <ul class="questions">
+        <li><span class="han" lang="zh">散</span><span>¿En el dispersivo, anestesiado por la comodidad, diciendo que estás bien cuando no lo estás?</span></li>
+        <li><span class="han" lang="zh">重</span><span>¿En el grave, tan metido en una obligación que ya no distingues el deber del deseo?</span></li>
+        <li><span class="han" lang="zh">围</span><span>¿En el cercado, dándole vueltas a la misma decisión porque las dos opciones te parecen una derrota?</span></li>
+        <li><span class="han" lang="zh">死</span><span>¿En el mortal, sabiendo que tu versión anterior ya no funciona, pero sin atreverte a soltarla?</span></li>
+        <li><span class="han" lang="zh">空</span><span>¿En el vacío, con algo ganado y la sensación de haber perdido algo más grande por el camino?</span></li>
+      </ul>
+
+      <p class="beat">No hace falta haber ido a la guerra para pisar estos terrenos.</p>
+      <p>Los pisa quien acaba de divorciarse y no sabe quién es fuera de esa relación. Quien recibe un diagnóstico que le obliga a replantearse todo. Quien emigró y ya no pertenece ni al lugar que dejó ni al que llegó. Quien cuida de alguien hasta olvidarse de cuidarse.</p>
+      <p>En el fondo, cualquiera que haya llegado al final de algo y no encuentre el principio de lo siguiente.</p>
+    </section>
+
+    <!-- EL CUERPO -->
+    <section class="terrain" aria-labelledby="t7">
+      <span class="terrain-mark" lang="zh" aria-hidden="true">站桩</span>
+      <h2 id="t7">El cuerpo como primer terreno</h2>
+
+      <p>Hay algo que Sun Wu nunca se planteó y que Lin le enseña a Meng desde el primer capítulo: el primer terreno es el cuerpo, antes que la mente o las emociones.</p>
+      <p>El cuerpo registra lo que la mente se niega a ver. Una espalda que se curva puede ser una armadura que ya no necesitas y que sigues sin quitarte. Una mandíbula apretada, una orden de combate que nadie revocó. Unas piernas que no te sostienen, un terreno que se ha movido bajo tus pies.</p>
+      <p>El <em>Zhàn Zhuāng</em>, la postura del árbol, consiste en quedarse de pie como un poste. Para mí es menos un ejercicio que una forma de cartografiar el terreno interior con el cuerpo. Cuando te quedas quieto, de pie, sin hacer nada, el cuerpo empieza a hablar. Te dice dónde hay tensión, dónde hay vacío, dónde hay miedo. Y lo dice sin palabras, sin las vueltas interminables del terreno cercado.</p>
+      <p>Meng lo hace el primer día, bajo la lluvia, y le tiemblan los hombros. Lo vuelve a hacer al final del Capítulo XVIII, la mañana en que muere Lin: sale al patio, se pone junto al ginkgo en la postura del árbol y el cuerpo le tiembla igual que entonces. Solo que esta vez el temblor ya no es un síntoma. El libro lo dice en tres golpes:</p>
+
+      <p class="three" aria-label="De pie. Temblando. Con las piernas firmes."><span>De pie.</span><span>Temblando.</span><span>Con las piernas firmes.</span></p>
+
+      <p>No se ha rendido y tampoco ha vencido.</p>
+      <p class="beat">Es un hombre que ha dejado de buscar el terreno correcto y ha decidido habitar el que tiene.</p>
+    </section>
+
+    <!-- EL DÉCIMO TERRENO -->
+    <section class="finale" aria-labelledby="t8">
+      <div class="finale-han" aria-hidden="true">空</div>
+      <h2 id="t8" class="interlude-title" style="font-family:var(--font-display);font-weight:500;font-size:clamp(1.9rem,4.6vw,2.5rem);color:var(--gold);margin-bottom:2rem;">El décimo terreno</h2>
+
+      <p>Sun Wu cartografió el mundo exterior con una precisión que todavía funciona veinticinco siglos después. Pero el terreno que pisas cuando cierras este libro, cuando apagas la luz y te quedas solo, cuando termina la batalla del día y queda lo que queda, ese no está en ningún tratado.</p>
+      <p>No tiene nombre oficial ni estrategia escrita. Lo único que tiene es tu atención, y probablemente sea lo único que necesita.</p>
+      <p>Si has llegado hasta esta línea, supongo que alguno de estos terrenos te resulta familiar. No porque lo hayas estudiado, sino porque lo has pisado.</p>
+
+      <p class="last">El décimo terreno no se conquista. Se habita.</p>
+      <p class="last-sub">Y habitar un terreno difícil con los ojos abiertos ya es empezar a volver.</p>
+
+      <div class="aside-box">
+        <p class="small">Si este terreno te suena, hay un libro entero dedicado al primero de todos: el cuerpo.</p>
+        <p><a href="https://www.amazon.es/Equilibrio-Presencia-Ricardo-Gustavo-Cussatti/dp/B0DVSX7RMH" target="_blank" rel="noopener">📖 <em>Equilibrio &amp; Presencia</em> — El primer mapa.</a></p>
+      </div>
+
+      <div class="signature">
+        <span class="seal" role="img" aria-label="Sello: Dào">道</span>
+        <p class="name">Ricardo Gustavo Cussatti Araujo</p>
+        <p class="place">Palma de Mallorca</p>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="descargas/El-Decimo-Terreno.pdf" download>Descargar PDF</a>
+        <a class="btn" href="index.html">Volver al décimo terreno</a>
+      </div>
+    </section>
+
+  </article>
+</main>
+
+<footer class="end">
+  <a href="index.html">El Décimo Terreno</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El Décimo Terreno</title>
+<meta name="description" content="El Décimo Terreno — Contenido exclusivo para lectores de El Dao del Guerrero. Banda sonora, capítulo inédito, guía de pronunciación y más.">
+<meta name="theme-color" content="#0b0a08">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="El Décimo Terreno">
+<meta property="og:description" content="Sun Wu describió nueve terrenos. Este es el décimo. Solo para quien llegó hasta aquí.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://eldaodelguerrero.site/img/web/og.jpg">
+<meta property="og:url" content="https://eldaodelguerrero.site/">
+<link rel="canonical" href="https://eldaodelguerrero.site/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="img/web/portada-4-grande.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;500;700;900&display=swap">
+<style>
+/* El Décimo Terreno — la página que continúa el libro.
+   La portada es el escenario: el guerrero emerge del negro, el oro del título,
+   el rojo del sello. Todo lo demás se queda quieto para que eso respire. */
+
+:root {
+  --bg: #0b0a08;
+  --bg-elevated: #141210;
+  --fg: #e8e0d0;
+  --fg-muted: #a09880;
+  --fg-dim: #706858;
+  --gold: #c9a44c;
+  --ember: #e0903c;
+  --red: #8b2020;
+  --line: rgba(201, 164, 76, 0.08);
+  --line-soft: rgba(201, 164, 76, 0.05);
+  --gold-metal: linear-gradient(176deg, #f6e3a8 0%, #d9b45e 30%, #a9822f 52%, #e7c87a 70%, #8f6a26 100%);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-hanzi: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+  --gutter: 24px;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grano de película */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection { background: rgba(201, 164, 76, 0.3); color: var(--fg); }
+img { max-width: 100%; display: block; }
+p { margin: 0 0 1.25rem; }
+p:last-child { margin-bottom: 0; }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+
+a { color: var(--gold); text-decoration: none; transition: color .3s; }
+a:hover { color: var(--fg); }
+:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+
+.wrap { max-width: 720px; margin-inline: auto; padding-inline: var(--gutter); }
+.wrap-wide { max-width: 1080px; margin-inline: auto; padding-inline: var(--gutter); }
+.muted { color: var(--fg-muted); }
+.small { font-size: 0.86rem; line-height: 1.65; }
+
+/* ===== SECCIONES =====
+   Cada sección: el ideograma cuelga en el margen como marca de capítulo. */
+.chapter {
+  padding-block: 112px;
+  border-top: 1px solid var(--line);
+}
+.chapter-head { position: relative; }
+.ideogram {
+  display: block;
+  font-family: var(--font-hanzi);
+  font-weight: 500;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.25;
+  margin-bottom: 1.25rem;
+  user-select: none;
+}
+@media (min-width: 1000px) {
+  .ideogram { position: absolute; right: calc(100% + 40px); top: 0.1em; margin: 0; }
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  line-height: 1.12;
+  letter-spacing: 0.005em;
+  color: var(--gold);
+  text-wrap: balance;
+}
+h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: var(--red);
+  margin: 1.5rem 0 1.9rem;
+}
+
+/* ===== HERO: la portada ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Arte de la portada sin textos: el guerrero, la ciudad en llamas, la bandera 戰 */
+.hero-art {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: min(62vw, calc(100svh * 800 / 1250 * 1.25));
+  aspect-ratio: 800 / 1000;
+  transform: translateY(-50%);
+  background: url('img/web/portada-4-grande.jpg') no-repeat 50% 22% / cover;
+  -webkit-mask-image: radial-gradient(ellipse 74% 70% at 60% 44%, #000 40%, rgba(0,0,0,.55) 64%, transparent 88%);
+          mask-image: radial-gradient(ellipse 74% 70% at 60% 44%, #000 40%, rgba(0,0,0,.55) 64%, transparent 88%);
+  z-index: -2;
+  animation: emerge 2.4s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes emerge {
+  from { opacity: 0; transform: translateY(-50%) scale(1.06); filter: brightness(.4); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1); filter: brightness(1); }
+}
+
+/* Calor del atardecer desde abajo a la izquierda */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 100%, rgba(224, 144, 60, 0.10), transparent 70%),
+    linear-gradient(to top, var(--bg) 0%, transparent 22%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hero-watermark {
+  position: absolute;
+  left: -0.08em;
+  bottom: -0.18em;
+  font-family: var(--font-hanzi);
+  font-weight: 900;
+  font-size: clamp(14rem, 34vw, 26rem);
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.04;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-copy {
+  position: relative;
+  max-width: 1180px;
+  width: 100%;
+  margin-inline: auto;
+  padding: 120px var(--gutter) 140px;
+}
+
+.hero-series {
+  font-family: var(--font-display);
+  font-variant: small-caps;
+  font-size: 1.15rem;
+  letter-spacing: 0.16em;
+  color: var(--fg-muted);
+  margin-bottom: 1.6rem;
+  animation: rise-in 1.2s .6s both;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3.1rem, 8.4vw, 6.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.005em;
+  max-width: 9.5ch;
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.7));
+  animation: rise-in 1.4s .8s both;
+}
+
+.hero-sub {
+  margin: 2.2rem 0 0;
+  max-width: 400px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1.45;
+  color: var(--fg);
+  text-shadow: 0 1px 12px rgba(0,0,0,.9);
+  animation: rise-in 1.4s 1.1s both;
+}
+
+.seal {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--red);
+  border-radius: 2px;
+  color: #a82626;
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1;
+  transform: rotate(-3deg);
+  user-select: none;
+}
+.hero .seal { margin-top: 2.6rem; animation: stamp .5s 1.8s cubic-bezier(.3,1.6,.5,1) both; }
+
+@keyframes rise-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes stamp { from { opacity: 0; transform: rotate(-3deg) scale(1.6); } to { opacity: 1; transform: rotate(-3deg) scale(1); } }
+
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  opacity: .5;
+}
+
+/* Brasas */
+.embers { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+.embers i {
+  position: absolute;
+  bottom: -8px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--ember);
+  box-shadow: 0 0 8px 2px rgba(224, 120, 40, .55);
+  opacity: 0;
+  animation: drift 13s linear infinite;
+}
+.embers i:nth-child(1) { left: 54%; animation-delay: .5s; }
+.embers i:nth-child(2) { left: 63%; animation-delay: 3s;  animation-duration: 16s; width: 2px; height: 2px; }
+.embers i:nth-child(3) { left: 71%; animation-delay: 6s;  animation-duration: 11s; }
+.embers i:nth-child(4) { left: 80%; animation-delay: 1.5s; animation-duration: 18s; width: 2px; height: 2px; }
+.embers i:nth-child(5) { left: 88%; animation-delay: 8s;  animation-duration: 14s; }
+.embers i:nth-child(6) { left: 42%; animation-delay: 10s; animation-duration: 20s; width: 2px; height: 2px; }
+.embers i:nth-child(7) { left: 94%; animation-delay: 4.5s; animation-duration: 15s; }
+@keyframes drift {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: .8; }
+  70%  { opacity: .3; }
+  100% { transform: translate(-60px, -85vh); opacity: 0; }
+}
+
+/* ===== BOTONES ===== */
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 2.25rem 0 1.4rem; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 30px;
+  border: 1px solid rgba(201, 164, 76, 0.55);
+  border-radius: 2px;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: border-color .35s, box-shadow .35s, background-color .35s, color .35s;
+}
+.btn:hover {
+  color: var(--fg);
+  border-color: var(--gold);
+  background: rgba(201, 164, 76, 0.06);
+  box-shadow: 0 0 28px rgba(201, 164, 76, 0.16);
+}
+.btn .tri { font-size: .62em; }
+.btn-small { padding: 10px 20px; font-size: .95rem; }
+.text-link {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  border-bottom: 1px solid rgba(201, 164, 76, .3);
+  padding-bottom: 1px;
+}
+.text-link:hover { border-bottom-color: var(--fg); }
+
+.aside-box {
+  margin-top: 2.75rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--gold);
+}
+.aside-box p { margin: 0; }
+.aside-box p + p { margin-top: .55rem; }
+.aside-box a { font-family: var(--font-display); font-size: 1.15rem; }
+
+/* ===== 1 · MÚSICA: los instrumentos como columnas de caracteres ===== */
+.instruments {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 2.75rem 0 2.5rem;
+  border-block: 1px solid var(--line);
+}
+.instrument {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 26px 10px 20px;
+}
+.instrument + .instrument { border-left: 1px solid var(--line-soft); }
+.instrument .hz {
+  writing-mode: vertical-rl;
+  font-family: var(--font-hanzi);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 4.4vw, 2.1rem);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  min-height: 3.4em;
+}
+.instrument .name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--fg-muted);
+}
+
+/* ===== 2 · CAPÍTULO: 内地形 vertical como el lomo del libro ===== */
+.terrain {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: start;
+}
+.terrain-spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding-top: 6px;
+}
+.terrain-spine .hz {
+  writing-mode: vertical-rl;
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 7vw, 5.4rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  background: var(--gold-metal);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.terrain-spine .seal { width: 40px; height: 40px; font-size: 1.3rem; }
+.kicker {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--fg-muted);
+  margin: -.6rem 0 1.75rem;
+}
+.lead {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.lead p:first-child {
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: var(--fg);
+  font-weight: 400;
+}
+
+/* ===== 3 · PRONUNCIACIÓN: glosario en dos columnas ===== */
+.glossary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 56px;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(201, 164, 76, .15);
+}
+.term {
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.term .hz {
+  font-family: var(--font-hanzi);
+  font-weight: 500;
+  font-size: 1.55rem;
+  line-height: 1.1;
+  color: var(--fg);
+  opacity: .82;
+  letter-spacing: .02em;
+}
+.term .pinyin {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: var(--gold);
+}
+.term .approx {
+  display: block;
+  margin-top: 4px;
+  font-size: .9rem;
+  line-height: 1.55;
+  color: var(--fg-muted);
+}
+.note {
+  margin-top: 2.25rem;
+  max-width: 720px;
+  padding: 1.35rem 1.6rem;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  font-size: .92rem;
+  line-height: 1.75;
+  color: var(--fg-muted);
+}
+.note strong { color: var(--gold); font-weight: 500; font-family: var(--font-display); font-size: 1.15em; }
+
+/* ===== 4 · ZHÀN ZHUĀNG ===== */
+.stance-quote {
+  position: relative;
+  margin: 0 0 2.25rem;
+  padding: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.55rem, 3.6vw, 2.05rem);
+  line-height: 1.42;
+  color: var(--fg);
+  text-wrap: pretty;
+}
+.stance-quote::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+}
+
+/* ===== 5 · MALLORCA ===== */
+.dojo {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 2.25rem;
+  background:
+    radial-gradient(ellipse 60% 90% at 100% 0%, rgba(139, 32, 32, 0.10), transparent 70%),
+    var(--bg-elevated);
+  border: 1px solid rgba(201, 164, 76, .14);
+  border-radius: 2px;
+}
+.dojo ul { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 6px; color: var(--fg-muted); font-size: .96rem; }
+.dojo li a { color: var(--fg-muted); }
+.dojo li a:hover { color: var(--gold); }
+.dojo .small { margin-top: 1.4rem; }
+.dojo-han {
+  font-family: var(--font-hanzi);
+  font-weight: 900;
+  font-size: 5.5rem;
+  line-height: 1;
+  color: var(--red);
+  opacity: .55;
+  writing-mode: vertical-rl;
+  user-select: none;
+}
+
+/* ===== 6 · LIBROS: línea temporal ===== */
+.path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin: 3.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.path::before {
+  content: '';
+  position: absolute;
+  top: 27px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201,164,76,.12), rgba(201,164,76,.45) 70%, rgba(201,164,76,.08));
+}
+.vol { position: relative; }
+.vol-num {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 1.4rem;
+  background: var(--bg);
+  border: 1px solid rgba(201, 164, 76, .3);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: var(--fg-muted);
+}
+.vol-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.28rem;
+  line-height: 1.2;
+  margin: 0 0 .5rem;
+}
+.vol-name a { color: var(--fg); border-bottom: 1px solid rgba(201,164,76,.25); }
+.vol-name a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+.vol-desc { font-size: .88rem; line-height: 1.6; color: var(--fg-muted); margin: 0; }
+.vol-tag {
+  display: inline-block;
+  margin-top: .9rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold);
+}
+
+.vol.current .vol-num {
+  border: 2px solid var(--red);
+  border-radius: 2px;
+  color: #b02a2a;
+  font-weight: 700;
+  transform: rotate(-3deg);
+}
+.vol.current .vol-name { color: var(--gold); font-size: 1.45rem; }
+.vol-cover {
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: .63;
+  margin-bottom: 1.2rem;
+  background: url('img/portada.webp') 100% 0 / auto 100% no-repeat, #1a1612;
+  border: 1px solid rgba(201,164,76,.25);
+  box-shadow: 0 18px 40px rgba(0,0,0,.7);
+}
+.vol.upcoming { opacity: .6; }
+.vol.upcoming .vol-tag { color: var(--fg-muted); }
+
+.books-coda { margin-top: 3rem; max-width: 620px; color: var(--fg-muted); }
+
+/* ===== 7 · CIERRE: el guerrero que se aleja (contraportada) ===== */
+.close {
+  position: relative;
+  text-align: center;
+  padding-bottom: 110px;
+  border-top: 1px solid var(--line);
+}
+.close-scene {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  max-height: 78vh;
+  background: url('img/web/fondo.jpg') no-repeat 50% 74% / cover;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 35%, #000 60%, transparent 100%);
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 35%, #000 60%, transparent 100%);
+}
+.close-body { margin-top: -40px; position: relative; }
+.close-han {
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: .35;
+  margin-bottom: 1rem;
+}
+.close-pinyin {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--fg-muted);
+  margin-bottom: 1.5rem;
+}
+.close-text {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.35rem, 3vw, 1.7rem);
+  line-height: 1.5;
+  color: var(--fg);
+  max-width: 380px;
+  margin: 0 auto 4rem;
+}
+.author {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  text-align: left;
+}
+.author-photo {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  padding: 3px;
+  border: 1px solid rgba(201, 164, 76, .35);
+}
+.author-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border-radius: 50%;
+  filter: grayscale(.5) sepia(.28) contrast(1.06) brightness(.92);
+}
+.author-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--fg);
+  margin: 0 0 .35rem;
+}
+.author-place { font-size: .88rem; line-height: 1.55; color: var(--fg-muted); margin: 0; }
+.close .seal { margin-top: 3rem; }
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 2.5rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+.social a { color: var(--fg-muted); }
+.social a:hover { color: var(--gold); }
+
+/* ===== IMÁGENES DE SECCIÓN ===== */
+
+/* Música: Meng bajo la lluvia junto al texto */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+.split-art {
+  margin: 0;
+  aspect-ratio: 900 / 1300;
+  background: url('img/web/meng.jpg') no-repeat 50% 18% / cover;
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%), linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, #000 62%, transparent 100%), linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%);
+          mask-composite: intersect;
+  filter: saturate(.85) contrast(1.05);
+}
+@media (min-width: 1000px) {
+  .split { grid-template-columns: 340px minmax(0, 640px); gap: 72px; justify-content: center; align-items: start; }
+  .split-art { position: sticky; top: 48px; }
+  .split .ideogram { position: static; margin-bottom: 1.25rem; }
+}
+
+/* Capítulo: el guerrero de tinta dentro del ensō, como fondo del terreno interior */
+.chapter-ink { position: relative; overflow: hidden; isolation: isolate; }
+.ink-art {
+  position: absolute;
+  top: 40px;
+  right: calc(50% - 830px);
+  width: min(620px, 70vw);
+  aspect-ratio: 1;
+  background: url('img/web/guerrero.jpg') no-repeat center / contain;
+  opacity: .5;
+  -webkit-mask-image: radial-gradient(circle at 55% 50%, #000 45%, transparent 72%);
+          mask-image: radial-gradient(circle at 55% 50%, #000 45%, transparent 72%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Zhàn Zhuāng: la foto del autor en la postura */
+.stance-photo {
+  margin: 3rem 0 2.5rem;
+}
+.stance-photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1400 / 1030;
+  object-fit: cover;
+  object-position: 60% 40%;
+  border: 1px solid rgba(201, 164, 76, .14);
+  filter: saturate(.6) sepia(.18) contrast(1.04) brightness(.92);
+}
+.stance-photo figcaption {
+  margin-top: .75rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: .98rem;
+  color: var(--fg-muted);
+}
+
+/* Práctica guiada: Cheng Bao Zhuang */
+.practice {
+  margin: 2.5rem 0 0;
+  padding: 2.25rem 2.25rem 2rem;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(201, 164, 76, .14);
+  border-radius: 2px;
+}
+.practice-head { display: flex; align-items: center; gap: 22px; margin-bottom: 1.75rem; }
+.practice-han {
+  font-family: var(--font-hanzi);
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 1;
+  color: var(--gold);
+  writing-mode: vertical-rl;
+  letter-spacing: .06em;
+}
+.practice-title { font-family: var(--font-display); font-weight: 600; font-size: 1.75rem; line-height: 1.1; color: var(--fg); }
+.practice-sub { margin: .3rem 0 0; font-family: var(--font-display); font-style: italic; font-size: 1.15rem; color: var(--gold); }
+.steps { list-style: none; counter-reset: step; margin: 2rem 0; padding: 0; display: grid; gap: 1.1rem; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 3rem;
+  font-size: .97rem;
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -.1em;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: .6;
+}
+.steps strong { color: var(--fg); font-weight: 500; }
+.practice-note {
+  margin: 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+/* Portadas en la línea de libros */
+.vol-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 132px;
+  aspect-ratio: 2 / 3;
+  margin-bottom: 1.1rem;
+  object-fit: cover;
+  border: 1px solid rgba(201, 164, 76, .18);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .65);
+  transition: transform .4s;
+}
+a:hover > .vol-thumb { transform: translateY(-4px); }
+.vol.current .vol-cover { max-width: 150px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .path { grid-template-columns: 1fr; gap: 0; padding-left: 0; }
+  .path::before { top: 0; bottom: 0; left: 27px; right: auto; width: 1px; height: auto;
+    background: linear-gradient(to bottom, rgba(201,164,76,.12), rgba(201,164,76,.45) 70%, rgba(201,164,76,.08)); }
+  .vol { display: grid; grid-template-columns: 54px 1fr; column-gap: 22px; padding-bottom: 2.25rem; }
+  .vol-num { grid-row: span 4; margin: 0; }
+  .vol-cover { max-width: 110px; }
+  .glossary { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  :root { --gutter: 18px; }
+  body { font-size: 16px; }
+  .chapter { padding-block: 80px; }
+
+  .hero { display: block; min-height: auto; }
+  .hero-art {
+    position: relative;
+    top: 0;
+    width: 100%;
+    transform: none;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 58%, transparent 96%);
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 12%, #000 58%, transparent 96%);
+    animation-name: emerge-m;
+  }
+  @keyframes emerge-m { from { opacity: 0; transform: scale(1.05); } to { opacity: 1; transform: none; } }
+  .hero-copy { padding: 0 var(--gutter) 72px; margin-top: -26vw; }
+  .hero h1 { font-size: clamp(2.9rem, 13vw, 4rem); }
+  .hero-watermark { display: none; }
+  .scroll-cue { display: none; }
+
+  .split-art { aspect-ratio: 4 / 5; }
+  .ink-art { opacity: .3; top: 20px; right: -30%; width: 95vw; }
+  .instruments { grid-template-columns: repeat(5, 1fr); }
+  .instrument .name { font-size: .85rem; }
+
+  .terrain { grid-template-columns: 1fr; gap: 28px; }
+  .terrain-spine { flex-direction: row; justify-content: flex-start; }
+  .terrain-spine .hz { writing-mode: horizontal-tb; font-size: 3rem; }
+
+  .term { grid-template-columns: 3.4rem 1fr; gap: 14px; }
+
+  .btn-row { flex-direction: column; }
+  .btn { width: 100%; }
+
+  .dojo { grid-template-columns: 1fr; padding: 1.5rem; }
+  .dojo-han { display: none; }
+  .aside-box { padding: 1.25rem; }
+  .practice { padding: 1.5rem 1.25rem; }
+  .steps li { padding-left: 2.25rem; }
+
+  .close-scene {
+    aspect-ratio: 4 / 3;
+    background-position: 74% 78%;
+  }
+  .author { flex-direction: column; text-align: center; gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .embers { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- 0 · HERO -->
+<header class="hero">
+  <div class="hero-art" role="img" aria-label="El guerrero Meng Zhiyuan, de la portada de El Dao del Guerrero"></div>
+  <div class="embers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="hero-watermark" aria-hidden="true">空</div>
+  <div class="hero-copy">
+    <p class="hero-series">El Dao del Guerrero</p>
+    <h1>Has llegado al décimo terreno.</h1>
+    <p class="hero-sub">Lo que viene a continuación no está en el libro. Es lo que queda después.</p>
+    <span class="seal" role="img" aria-label="Sello: Dào">道</span>
+  </div>
+  <span class="scroll-cue" aria-hidden="true"></span>
+</header>
+
+<main>
+
+  <!-- 1 · BANDA SONORA -->
+  <section class="chapter" aria-labelledby="s-musica">
+    <div class="wrap-wide split">
+      <figure class="split-art" role="img" aria-label="Meng Zhiyuan bajo la lluvia"></figure>
+      <div>
+      <div class="chapter-head">
+        <span class="ideogram" aria-hidden="true">樂</span>
+        <h2 id="s-musica">La música que acompaña al guerrero</h2>
+      </div>
+      <p>39 piezas de guzheng, erhu, pipa, guqin y cello organizadas en 6 bloques que siguen el arco del libro. Desde el regreso bajo la lluvia hasta el silencio final.</p>
+
+      <div class="instruments" aria-label="Instrumentos de la banda sonora">
+        <div class="instrument"><span class="hz" lang="zh">古筝</span><span class="name">guzheng</span></div>
+        <div class="instrument"><span class="hz" lang="zh">二胡</span><span class="name">erhu</span></div>
+        <div class="instrument"><span class="hz" lang="zh">琵琶</span><span class="name">pipa</span></div>
+        <div class="instrument"><span class="hz" lang="zh">古琴</span><span class="name">guqin</span></div>
+        <div class="instrument"><span class="hz" lang="zh">大提琴</span><span class="name">cello</span></div>
+      </div>
+
+      <p>No es música de fondo. Es la banda sonora que el libro no puede incluir entre sus páginas.</p>
+      <div class="btn-row">
+        <a href="https://open.spotify.com/playlist/4YXAtD6dBQJ1pcoAXCL2m3" class="btn" target="_blank" rel="noopener"><span class="tri" aria-hidden="true">▶</span>Abrir en Spotify</a>
+      </div>
+      <p class="small muted">Playlist creada por el autor. Incluye a Tan Dun, Yo-Yo Ma, Wu Man, Guan Pinghu, Abing, Andy Lau y Chen Jun.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · CAPÍTULO EXCLUSIVO -->
+  <section class="chapter chapter-ink" aria-labelledby="s-capitulo">
+    <div class="ink-art" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="chapter-head">
+        <span class="ideogram" aria-hidden="true">地</span>
+        <h2 id="s-capitulo">El terreno que Sun Wu no cartografió</h2>
+      </div>
+      <p class="kicker">Nèi Dìxíng — El Décimo Terreno</p>
+      <div class="terrain">
+        <div class="terrain-spine">
+          <span class="hz" lang="zh" aria-label="内地形">内地形</span>
+          <span class="seal" aria-hidden="true">道</span>
+        </div>
+        <div>
+          <div class="lead">
+            <p>Sūn Wǔ dedicó dos capítulos del <em>Bīngfǎ</em> al terreno exterior. Pero nunca escribió sobre el terreno que llevas dentro.</p>
+            <p>Este ensayo es el capítulo que no cabe en el libro — una exploración del <em>Nèi Dìxíng</em> (terreno interior) aplicado a los conflictos que no tienen campo de batalla visible: el agotamiento que no reconoces, la negociación contigo mismo que nunca ganas, la retirada que confundes con derrota.</p>
+          </div>
+          <div class="btn-row">
+            <a href="ensayo.html" class="btn">Leer el ensayo</a>
+            <a href="descargas/El-Decimo-Terreno.pdf" class="btn btn-small" download>Descargar PDF</a>
+          </div>
+        </div>
+      </div>
+      <div class="aside-box">
+        <p class="small muted">Si este terreno te suena familiar, hay un libro entero dedicado al terreno del cuerpo.</p>
+        <p><a href="https://www.amazon.es/Equilibrio-Presencia-Ricardo-Gustavo-Cussatti/dp/B0DVSX7RMH" target="_blank" rel="noopener">📖 <em>Equilibrio &amp; Presencia</em> — El primer mapa.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · PRONUNCIACIÓN -->
+  <section class="chapter" aria-labelledby="s-pron">
+    <div class="wrap-wide">
+      <div class="wrap" style="padding-inline:0; margin-inline:0;">
+        <div class="chapter-head">
+          <span class="ideogram" aria-hidden="true">音</span>
+          <h2 id="s-pron">Cómo se pronuncia lo que acabas de leer</h2>
+        </div>
+        <p>El libro usa términos en mandarín con pinyin y tonos. Aquí los tienes todos.</p>
+      </div>
+      <ul class="glossary">
+        <li class="term"><span class="hz" lang="zh">道</span><span><span class="pinyin">Dào</span><span class="approx">«dáo» — como <em>dow</em> en Dow Jones</span></span></li>
+        <li class="term"><span class="hz" lang="zh">武德</span><span><span class="pinyin">Wǔdé</span><span class="approx">«uu-dé» — <em>uu</em> como en uva, <em>dé</em> como débil</span></span></li>
+        <li class="term"><span class="hz" lang="zh">兵法</span><span><span class="pinyin">Bīngfǎ</span><span class="approx">«bing-fǎ» — <em>fǎ</em> con tono descendente-ascendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">势</span><span><span class="pinyin">Shì</span><span class="approx">«shì» — <em>sh</em> fuerte + <em>i</em> descendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">虚实</span><span><span class="pinyin">Xū Shí</span><span class="approx">«shü-shí» — <em>ü</em> como en francés <em>tu</em></span></span></li>
+        <li class="term"><span class="hz" lang="zh">中道</span><span><span class="pinyin">Zhōng Dào</span><span class="approx">«yong-dáo» — <em>zh</em> suena como <em>y</em> retroflexa</span></span></li>
+        <li class="term"><span class="hz" lang="zh">内地形</span><span><span class="pinyin">Nèi Dìxíng</span><span class="approx">«néi dì-shíng»</span></span></li>
+        <li class="term"><span class="hz" lang="zh">无为</span><span><span class="pinyin">Wú Wéi</span><span class="approx">«ú uéi»</span></span></li>
+        <li class="term"><span class="hz" lang="zh">站桩</span><span><span class="pinyin">Zhàn Zhuāng</span><span class="approx">«yán yuang» — <em>zh</em> = <em>y</em> retroflexa</span></span></li>
+        <li class="term"><span class="hz" lang="zh">仁</span><span><span class="pinyin">Rén</span><span class="approx">«rén» — <em>r</em> suave + <em>en</em> ascendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">义</span><span><span class="pinyin">Yì</span><span class="approx">«i» — tono descendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">礼</span><span><span class="pinyin">Lǐ</span><span class="approx">«li» — tono descendente-ascendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">智</span><span><span class="pinyin">Zhì</span><span class="approx">«yì» — <em>zh</em> = <em>y</em> retroflexa, tono descendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">信</span><span><span class="pinyin">Xìn</span><span class="approx">«shin» — tono descendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">气</span><span><span class="pinyin">Qì</span><span class="approx">«chi» — tono descendente</span></span></li>
+        <li class="term"><span class="hz" lang="zh">古琴</span><span><span class="pinyin">Guqin</span><span class="approx">«gu-chin»</span></span></li>
+        <li class="term"><span class="hz" lang="zh">古筝</span><span><span class="pinyin">Guzheng</span><span class="approx">«gu-yeng» — <em>zh</em> = <em>y</em> retroflexa</span></span></li>
+        <li class="term"><span class="hz" lang="zh">庄子</span><span><span class="pinyin">Zhuāngzǐ</span><span class="approx">«yuang-tsé»</span></span></li>
+      </ul>
+      <div class="note">
+        El pinyin usa convenciones que no son intuitivas en castellano. La <strong>zh</strong> suena aproximadamente como una <em>y</em> con la lengua curvada hacia atrás. La <strong>x</strong> suena como <em>sh</em>. La <strong>q</strong> suena como <em>ch</em>. Los acentos sobre las vocales indican tonos.
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · ZHÀN ZHUĀNG -->
+  <section class="chapter" aria-labelledby="s-zz">
+    <div class="wrap">
+      <div class="chapter-head">
+        <span class="ideogram" aria-hidden="true">樁</span>
+        <h2 id="s-zz">Zhàn Zhuāng — La postura que Meng adopta al final</h2>
+      </div>
+      <blockquote class="stance-quote">En el epílogo, Meng se queda de pie junto al ginkgo desnudo. Quieto. Sin espada. Sin postura marcial. Solo de pie.</blockquote>
+      <p>Esa postura tiene nombre: <em>Zhàn Zhuāng</em> — «estar de pie como un poste». Es la base del sistema interno que Lin enseñó toda su vida. No es meditación. No es ejercicio. Es otra cosa.</p>
+      <figure class="stance-photo">
+        <img src="img/web/zhan-zhuang.jpg" alt="Ricardo Gustavo Cussatti Araujo de pie en Zhàn Zhuāng, con los brazos abrazando el aire, bajo una bóveda de piedra" width="1400" height="1030" loading="lazy" decoding="async">
+        <figcaption>El autor en Zhàn Zhuāng. Foto: Smartr Photography.</figcaption>
+      </figure>
+      <p>Aquí tienes una guía para practicarla tú mismo, tomada de <em>Equilibrio &amp; Presencia</em>.</p>
+
+      <article class="practice" aria-labelledby="p-chengbao">
+        <header class="practice-head">
+          <span class="practice-han" lang="zh" aria-hidden="true">撑抱桩</span>
+          <div>
+            <h3 id="p-chengbao" class="practice-title">Cheng Bao Zhuang</h3>
+            <p class="practice-sub">Expansión y abrazo</p>
+          </div>
+        </header>
+
+        <p>Cheng Bao Zhuang es una de las posturas fundamentales de las posturas de Cultivar la Salud. Combina expansión y abrazo: expandes tu presencia física y energética en el espacio que te rodea mientras abrazas conscientemente tu propia vitalidad y tu conexión con la Tierra. Es encontrar el equilibrio entre la estabilidad de un poste y la flexibilidad de tu ser.</p>
+
+        <ol class="steps">
+          <li><strong>Los pies.</strong> Sepáralos a la anchura de los hombros. El centro de las plantas queda «hueco» de forma natural. Los dedos agarran suavemente el suelo, como si te aferraras a la tierra.</li>
+          <li><strong>El eje.</strong> Todo el cuerpo erguido, sin inclinarse hacia delante ni hacia atrás. La cabeza, suspendida por un hilo desde la coronilla. Baja ligeramente el mentón.</li>
+          <li><strong>Las rodillas.</strong> Algo flexionadas, como si estuvieran a punto de dar un pequeño salto.</li>
+          <li><strong>Los glúteos y la espalda.</strong> Como sentado en el borde de una mesa. La espalda, la cintura y la parte trasera de las piernas presionan suavemente contra un árbol o una pared detrás de ti.</li>
+          <li><strong>Los hombros.</strong> Sin levantarlos: déjalos caer. Abre las axilas como si sostuvieras unas naranjas debajo de ellas. Usa solo la fuerza necesaria para mantener los brazos elevados.</li>
+          <li><strong>Las manos.</strong> Elévalas con delicadeza frente al pecho, a una palma y media de él, con dos puños de separación entre ellas. Los dedos separados, como si hubiera bolas de algodón entre ellos.</li>
+          <li><strong>La esfera.</strong> Visualiza que sostienes entre tus manos, brazos y pecho una bola de cristal. Siente su forma redonda. Si aprietas demasiado, se rompe. Si sueltas, se cae.</li>
+          <li><strong>El rostro y la mirada.</strong> Labios entreabiertos, la «sonrisa de Buda». Relaja la cara y el cuello. Mira hacia el horizonte, un poco hacia arriba, sin fijarte en nada. Al principio, mejor con los ojos cerrados.</li>
+          <li><strong>La respiración.</strong> Natural, uniforme y delicada. En calma, consciente de los sonidos sutiles y de los cambios en el aire. Con paz y sin esfuerzo.</li>
+        </ol>
+
+        <p class="practice-note">Recuerda: solo usa tu mente para imaginar lo descrito, sin emplear fuerza física. Para empezar, mantén la postura cinco minutos. Cada persona tiene su propio ritmo: no te compares y no te frustres. La perseverancia y la paciencia son la clave.</p>
+      </article>
+
+      <div class="aside-box">
+        <p class="small muted">Este es el punto de entrada. Si quieres ir más profundo:</p>
+        <p><a href="https://www.amazon.es/Equilibrio-Presencia-Ricardo-Gustavo-Cussatti/dp/B0DVSX7RMH" target="_blank" rel="noopener">📖 <em>Equilibrio &amp; Presencia</em> — El libro completo sobre Zhàn Zhuāng.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · CLASE DE PRUEBA -->
+  <section class="chapter" aria-labelledby="s-clase">
+    <div class="wrap">
+      <div class="chapter-head">
+        <span class="ideogram" aria-hidden="true">武</span>
+        <h2 id="s-clase">Si estás en Mallorca</h2>
+      </div>
+      <p>El Centro de Investigación de Artes Orientales es donde todo esto se enseña en persona. Wushu, Qigong, Zhàn Zhuāng, artes internas. Niños, adultos, competición.</p>
+      <p>Si quieres probar, tu primera clase es gratuita. Sin compromiso, sin formularios largos. Solo ven.</p>
+      <div class="dojo">
+        <div>
+          <a href="https://www.investigaciondeartesorientales.net" class="btn" target="_blank" rel="noopener">Reservar clase de prueba</a>
+          <ul>
+            <li>📍 Pueblo Español 46, Palma de Mallorca</li>
+          </ul>
+          <p class="small muted">No hace falta experiencia previa. No hace falta equipamiento. Ven como estés.</p>
+        </div>
+        <span class="dojo-han" aria-hidden="true">武館</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · SISTEMA DE LIBROS -->
+  <section class="chapter" aria-labelledby="s-libros">
+    <div class="wrap-wide">
+      <div class="chapter-head">
+        <span class="ideogram" aria-hidden="true">書</span>
+        <h2 id="s-libros">Tres libros. Un sistema.</h2>
+      </div>
+      <ol class="path">
+        <li class="vol">
+          <span class="vol-num" aria-label="Libro I">I</span>
+          <a href="https://www.amazon.es/Equilibrio-Presencia-Ricardo-Gustavo-Cussatti/dp/B0DVSX7RMH" target="_blank" rel="noopener" aria-label="Equilibrio &amp; Presencia en Amazon"><img class="vol-thumb" src="img/web/libro-1.jpg" alt="" width="400" height="600" loading="lazy" decoding="async"></a>
+          <h3 class="vol-name"><a href="https://www.amazon.es/Equilibrio-Presencia-Ricardo-Gustavo-Cussatti/dp/B0DVSX7RMH" target="_blank" rel="noopener">Equilibrio &amp; Presencia</a></h3>
+          <p class="vol-desc">El cuerpo. Zhàn Zhuāng. Aprender a estar de pie.</p>
+        </li>
+        <li class="vol">
+          <span class="vol-num" aria-label="Libro II">II</span>
+          <a href="https://www.amazon.es/Wude-Sabidur%C3%ADa-Ancestral-Equilibrada-Integridad-ebook/dp/B0FLVTG6W3" target="_blank" rel="noopener" aria-label="Wude en Amazon"><img class="vol-thumb" src="img/web/libro-2.jpg" alt="" width="400" height="600" loading="lazy" decoding="async"></a>
+          <h3 class="vol-name"><a href="https://www.amazon.es/Wude-Sabidur%C3%ADa-Ancestral-Equilibrada-Integridad-ebook/dp/B0FLVTG6W3" target="_blank" rel="noopener">Wude</a></h3>
+          <p class="vol-desc">El carácter. Las cinco virtudes marciales. Saber quién eres antes de actuar.</p>
+        </li>
+        <li class="vol">
+          <span class="vol-num" aria-label="Libro III">III</span>
+          <a href="https://www.amazon.es/Dao-del-Estratega-Conflicto-Inevitable/dp/B0FXGGR6T2" target="_blank" rel="noopener" aria-label="El Dao del Estratega en Amazon"><img class="vol-thumb" src="img/web/libro-3.jpg" alt="" width="400" height="600" loading="lazy" decoding="async"></a>
+          <h3 class="vol-name"><a href="https://www.amazon.es/Dao-del-Estratega-Conflicto-Inevitable/dp/B0FXGGR6T2" target="_blank" rel="noopener">El Dao del Estratega</a></h3>
+          <p class="vol-desc">La estrategia. Sun Tzu aplicado. Prepararse para el conflicto.</p>
+        </li>
+        <li class="vol current" aria-current="true">
+          <span class="vol-num" aria-label="Libro IV">IV</span>
+          <a href="https://www.amazon.es/El-Dao-del-Guerrero-Capitulo/dp/B0HK7ZB2CQ" target="_blank" rel="noopener" aria-label="El Dao del Guerrero en Amazon"><div class="vol-cover" role="img" aria-label="Portada de El Dao del Guerrero"></div></a>
+          <h3 class="vol-name"><a href="https://www.amazon.es/El-Dao-del-Guerrero-Capitulo/dp/B0HK7ZB2CQ" target="_blank" rel="noopener">El Dao del Guerrero</a></h3>
+          <p class="vol-desc">El regreso. Sobrevivir al conflicto.</p>
+          <span class="vol-tag">Estás aquí</span>
+        </li>
+        <li class="vol upcoming">
+          <span class="vol-num" aria-label="Libro V">V</span>
+          <h3 class="vol-name">El Dao de la Indomable</h3>
+          <p class="vol-desc">La transformación.</p>
+          <span class="vol-tag">Próximamente</span>
+        </li>
+      </ol>
+      <p class="books-coda">Cada libro funciona solo. Pero juntos forman un camino: desde el cuerpo hasta la estrategia, desde la preparación hasta el regreso. No importa por dónde hayas entrado.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 7 · CIERRE -->
+<footer class="close">
+  <div class="close-scene" role="img" aria-label="Un guerrero solitario camina entre las banderas caídas hacia el atardecer"></div>
+  <div class="wrap close-body">
+    <div class="close-han" aria-hidden="true">空</div>
+    <p class="close-pinyin">Kōng.</p>
+    <p class="close-text">El vacío no es ausencia.<br>Es espacio para lo que viene.</p>
+
+    <div class="author">
+      <div class="author-photo">
+        <img src="img/autor.jpg" alt="Ricardo Gustavo Cussatti Araujo" width="731" height="1280" loading="lazy" decoding="async">
+      </div>
+      <div>
+        <p class="author-name">Ricardo Gustavo Cussatti Araujo</p>
+        <p class="author-place">Centro de Investigación de Artes Orientales<br>Palma de Mallorca</p>
+      </div>
+    </div>
+
+    <div><span class="seal" role="img" aria-label="Sello: Dào">道</span></div>
+
+    <nav class="social" aria-label="Redes del autor">
+      <a href="https://www.instagram.com/disciplinarealmallorca/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.amazon.es/s?k=ricardo+cussatti" target="_blank" rel="noopener">Amazon</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
